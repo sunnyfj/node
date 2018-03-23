@@ -1,0 +1,9 @@
+
+get & post 请求
+
+请求头 最大不能超过32k  请求content 最大不能超过 1G  get数据时候放在请求头 而post 是放在请求身
+
+之所以 POST数据比GET大的多
+
+data 分段接收
+end  全部到达
