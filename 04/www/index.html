@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    账号：<input type="text" id="user"><br>
+    用户：<input type="password" id="pass"><br>
+    <input type="button" value="注册" id="reg_bth">
+    <input type="button" value="登陆" id="login_bth">
+</body>
+    <script src="ajax.js"></script>
+    <script>
+        let oUser = document.getElementById('user');
+        let oPass = document.getElementById('pass');
+        let oRegBth = document.getElementById('reg_bth');
+        let oLoginBth = document.getElementById('login_bth');
+
+        oRegBth.onclick = () => {
+            ajax({
+                url:'/user',
+                data:{
+                    act: 'reg',
+                    user: oUser.value,
+                    pass: oPass.value
+                },
+                type:'get',
+                success: (str)=> {
+                    let json = eval('('+str+')');
+                    if(json.ok){
+                        alert('注册成功');
+                    }else{
+                        alert('注册失败:' + json.msg);
+                    }
+                },
+                error: () => {
+                    alert('通信错误')
+                }
+            })
+        }
+
+        oLoginBth.onclick = () => {
+            ajax({
+                url:'/user',
+                data: {
+                    act: 'login',
+                    user: oUser.value,
+                    pass: oPass.value
+                },
+                type:'get',
+                success: (str) => {
+                    let json = eval('('+str+')');
+                    if(json.ok){
+                        alert('登陆成功');
+                    }else{
+                        alert('登陆失败：' + json.msg);
+                    }
+                }
+            })
+        }
+
+
+    </script>
+</html>
