@@ -7,3 +7,137 @@ get & post 请求
 
 data 分段接收
 end  全部到达
+
+
+
+比较常用的：（*7）
+	crypto 加密 密码进过MD5等很多加密方式
+
+	Events 事件
+
+	net 网络操作
+
+	os  各种操作系统信息
+
+	path 处理文件路径用的
+
+	stream 流操作 高效的分段读取发送
+
+	timers 定时器
+
+	ZLIB 压缩
+
+
+
+nodejs docs 简介
+	assertion Testing  断言：做测试
+
+	buffer node的一部分
+
+	c++ Addons  c++的扩展
+
+	child processes 子进程
+
+	cluster 进程 性能的多进程处理
+
+	crypto 加密 密码进过MD5等很多加密方式
+
+	debugger 调试模块
+
+	dns  域名解析 getServer()
+
+	domain  域  废弃了
+
+	Events 事件
+
+	file system  fs
+
+	modules  帮助node的实现模块化
+
+	net 网络操作
+
+	os  各种操作系统信息
+
+	path 处理文件路径用的
+
+	process 进程相关的信息
+
+	punycode 废弃了
+
+	readline 读取js
+
+	pepl nodejs命令行
+
+	stream 流操作 高效的分段读取发送
+
+	timers 定时器
+
+	TLS/SSl 加密
+
+	TTY
+
+	UDP 数据传送
+
+	util 工具
+
+	v8 获取各种信息
+
+	vm 虚拟机
+
+	ZLIB 压缩
+
+
+
+require:
+	引入自己的模块  ./ ？ 不加./ 模块必须放在node_modules下
+
+	1.如果有 ./
+		从当前的模块找
+	2.如果没有 ./
+		先从系统模块找
+		再从node_modules找
+
+自定义模块可以放在node_modules下
+
+
+exports:  单独输出
+	导出
+
+module.exports  批量输出
+
+没有全局变量 默认回增加以下代码
+	(function (require, exports, module){})()
+
+.js 是可选
+
+
+npm : Nodejs Package Manager (NodeJS包管理器)
+
+1.统一下载路径
+2.自动下载依赖
+
+npm init
+npm publish 发布自己的模块
+npm unpublish 删除
+
+
+
+express框架 （本身功能并不操作主要依赖中间件）  保留了原生的功能 添加了方法（send）增强原有的功能 （非破坏式的）
+
+1、安装
+2、配置
+3、接收请求
+4、响应
+
+
+使用：
+	1、创建服务  var server = express()
+	2、监听  	  var server.listen(8080)
+	3、处理请求  server.use('地址', (req,res) => {})
+
+3种方法：
+	.get('/', (req, res) => {})
+	.post('/', (req, res) => {})
+	.use('/', (req, res) => {})
+
+中间件（插件）
