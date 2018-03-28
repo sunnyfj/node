@@ -142,3 +142,24 @@ res.send() : 参数可以为json类型
 	.use('/', (req, res) => {})
 
 中间件（插件）
+
+
+
+
+GET  无需中间件
+req.query
+
+POST 需要 body-parser
+server.use(bodyParser.urlencoded({}))
+
+server.use((req,res) => {
+	req.body
+})
+
+
+extended：true/false （扩展模式）
+limit:2*1024         (限制)
+
+
+
+链式操作：
