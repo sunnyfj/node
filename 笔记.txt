@@ -129,6 +129,7 @@ express框架 （本身功能并不操作主要依赖中间件）  保留了原�
 3、接收请求
 4、响应
 
+res.send() : 参数可以为json类型
 
 使用：
 	1、创建服务  var server = express()

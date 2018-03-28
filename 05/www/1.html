@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    账号：<input type="text" id="user"><br>
+    密码：<input type="password" id="pass"><br>
+    <input type="button" id="send" value="登陆">
+</body>
+    <script src="./ajax.js"></script>
+    <script>
+        (function(){
+            let oUser = document.getElementById('user');
+            let oPass = document.getElementById('pass');
+            let oSend = document.getElementById('send');
+
+            oSend.onclick = () => {
+                ajax({
+                    url:'/login',
+                    data:{
+                        user: oUser.value,
+                        pass: oPass.value
+                    },
+                    success: (str) => {
+                        let json = eval('('+str+')');
+                        if(json.ok){
+                            alert('登陆成功')
+                        }else{
+                            alert('登陆失败' + json.msg)
+                        }
+                    },
+                    error: () => {
+                        alert('通信错误')
+                    }
+                })
+            }
+
+
+        })()
+    </script>
+</html>
