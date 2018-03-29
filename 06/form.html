@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://localhost:8080" method="post">
+        用户：<input type="text" name="user"><br>
+        密码：<input type="password" name="pass"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+    <script>
+
+        function isReverseString(str1,str2){
+            var str1Arr = str1.split('');
+            var reverseStr1 = str1Arr.reverse().join('');
+            if(reverseStr1 == str2){
+                return true
+            }else{
+                return false
+            }
+        }
+        console.log(isReverseString('123','321'))
+    </script>
+</html>
