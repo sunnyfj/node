@@ -187,23 +187,54 @@ cookie 、session
 
 cookie：在浏览器保存一些数据  每次向服务器发送请求都会带过来
 
-	*不安全
+	*不安全 有限（4k）
 
 session: 保存数据，保存在服务端
 
-	*安全的
+	*安全的 无限
 ---------------------------------------------------------------------
 
 
+session： 不可能独立存在  基于cookie实现的  存在服务器的
+
+第一次浏览器访问服务器时 cookie 是空的  然后服务器植入 session_id  然后下次访问的
+时候根据id找到session的文件、读取、写入
+
+隐患： session劫持
+理论上没有完全避免的方法 只有缓解
 
 
+server.use(cookieParser('wdsdas'));
+cookie
+	req.secret = 'wdsdas';//签名(秘钥)  随便一个字符串   如果使用了 cookieParser了  里面就不用写这一行
+
+	//res.cookie('user', 'tom', {path: '/abc', maxAge: 30*24*3600*1000})
+	res.cookie('user', 'tom', {signed: true})
+
+	console.log(req.cookies) //存的是没有签名的cookie
+	console.log(req.signedCookies) //存 签名过的cookie   因cookie 容量过小 签过名会增大体积
+
+	cookieParser : 只能做到签名 防止篡改
+	cookieEncrypter : 专门用来加密
+
+session
+
+	1.写入
+	2.读取
+session劫持
 
 
+cookie-session
+ server.use(cookieParser())
+ server.use(cookieSession({
+	 name: 'sess',
+	 keys: ['aaa','bbb','ccc'],
+	 maxAge: 2*3600*1000  //session  越短用户安全越高。
+ }))
 
+delete req.session
 
-
-
-
+res.session['xxxx']
 
 
 
