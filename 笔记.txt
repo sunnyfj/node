@@ -264,8 +264,51 @@ jade:
 
 	3.  a(href="www.baidu.com") 百度
 
-	4. 内容空个格 
+	4. 内容空个格
 
+	5.  | 意思是原样输出  script.  点代表原样输出里边（下一级）所有东西
+
+	6. include （引入文件）  include xx.js  编译的不用请求
+
+	7. #{ 变量名 }  内容放入变量  变量放入 pretty 同等位置传入  模板里面可以放
+		运算 例如 a+b；
+		div(style=json)
+		div(class=arr)
+		div(class=arr class="active")
+
+	8. -var a =12 ; 声明变量  横杆
+		span=a  ===  span #{a}
+
+	9.循环 页面直接写
+		arr = [1,2,3]
+		for(var i=0; i<arr.length;i++ ){
+			div=arr[i]
+		}
+	10. content = <h2>12323</h2>  注入式攻击
+
+		div!=content   !感叹号 原样输出标签  代表确认输出
+
+	11.
+		-var a = 12;
+		-if(a%2 == 0)
+			div 偶数
+		-else
+			div 奇数
+
+
+		-var a =12;
+		case a
+			when 0
+				div aaa
+			when 1
+				div bbb
+			default
+				div 默认
+		只要前面是代码 后面是都是代码的话不用加 - 横杠也可以
+
+
+	页面中写js  空格 有时会编译出错 所以直接少些多余的空格
+---------------------------------------------------------------------
 
 
 

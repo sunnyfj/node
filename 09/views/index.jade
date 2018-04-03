@@ -1,0 +1,23 @@
+doctype
+html
+    head
+        mate(charset="utf-8")
+        title jade测试页面
+        style.
+            div {
+                width: 100px;
+                height:100px;
+                background:#ccc;
+                text-align:center;
+                line-height:100px;
+                float:left;
+                margin: 6px;
+            }
+            div.last {clear: left}
+    body
+        -var a = 0
+        while a < 12
+            if a%4==0 && a!=0
+                div.last #{a++}
+            else
+                div=a++
