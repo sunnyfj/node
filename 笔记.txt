@@ -331,12 +331,36 @@ ejs: 非侵入、非破坏
 		include 后面不可以写变量
 		外面进行判断引入
 
+---------------------------------------------------------------------
+ form 属性 上传文件  enctype="multipart/form-data"
+
+body-parser  解析post数据   application/x-www-form-urlencoded //默认就是这种模式
+multer	     解析post文件   multipart/form-data
+
+var obj = multer({dest: 'upload/'})
+
+server.use(obj.any());
+
+server.use((req, res){
+	req.files[0].originalname
+	req.files[0].path
+})
+
+把扩展名加上
+
+var newName = file.path+ pathLib.parse(file.originalname).ext;
+
+fs.rename(老名, 新名, (err) => {})
 
 
+multer:
+	let objMulter = multer({dest: './upload/'});
+	server.use(objMulter.any()) //所有文件  single('name') 等
+
+---------------------------------------------------------------------
 
 
-
-
+---------------------------------------------------------------------
 
 
 
