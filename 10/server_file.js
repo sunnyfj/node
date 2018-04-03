@@ -6,7 +6,7 @@ const path = require('path')
 const fs = require('fs')
 
 
-let objMulter = multer({dest: './upload/'});
+let objMulter = multer({dest: './www/upload/'});
 
 let server = express();
 
@@ -29,10 +29,11 @@ server.post('/', (req, res, next) => {
     //2.重名名零时文件
 
 })
-server.use('/form.html',(req, res) => {
+server.use('/upload.html',(req, res) => {
     var file_name = req.url;
+    //console.log(file_name)
 
-	fs.readFile(file_name , (err,data) => {
+	fs.readFile('./upload.html' , (err,data) => {
 		if(err){
 			res.write('404');
 		}else{
