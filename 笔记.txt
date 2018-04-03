@@ -237,10 +237,34 @@ delete req.session
 res.session['xxxx']
 
 
+---------------------------------------------------------------------
+模板引擎：生成页面
+
+jade- 破坏式、侵入式、强依赖
+
+ejs - 温和、非侵入式、弱依赖
 
 
+jade:
+	html  -- <html></html>
 
+	1. 根据缩进，规定层级
 
+	2. 属性
+
+		script(src="a.js",type="javascript")
+		style 可以直接写属性，或 {} json语法  别的不行
+
+		class 可以直接使用数组  别的不行
+
+		div.box  div#box  id 和class 的简写
+
+		另外一个写法
+			div&attrbutes({title: 'aaa', id: 'box'})
+
+	3.  a(href="www.baidu.com") 百度
+
+	4. 内容空个格 
 
 
 
