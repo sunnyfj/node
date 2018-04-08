@@ -359,10 +359,53 @@ multer:
 
 ---------------------------------------------------------------------
 
+consolidate  模板引擎
+
+consolidate  适配
+
+render 编译一个模板然后返回
+
+//c.输出什么东西
+server.set('view engine', 'html');  //set 是对整个服务的修改
+//b.模板文件放在哪
+server.set('views', './views');
+//a.用哪种模板引擎
+server.engine('html', consolidate.ejs)
+
+//接收用户请求
+server.get('/index', (req, res) => {
+    res.render('1.ejs', {name: 'tom'}); //render 编译一个模板然后返回
+})
+
 
 ---------------------------------------------------------------------
 
+route  路由
+把不同的目录 对应到不同的模块
 
+server 主服务
+
+Router  迷你server  也可以get() post() use()
+
+
+Router   拆分不同的模块  Router下也可有有Router
+
+1.创建router
+	let router  = express.Router()
+2.把router添加到server
+	server.use('/user', router)
+3.router内部
+	router.get()  .post()
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------
 
 
 
