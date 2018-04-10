@@ -463,6 +463,15 @@ nodejs 不支持MySQL
 
 -----------------
 
+//连接  连接池
+const db = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: '123456',
+    database: 'blog'
+})
+
+
 1、链接
 2、查询（发送请求）
 
@@ -484,6 +493,40 @@ SQL => 结构化查询语言(Structured Query Language)
 SQL标准写法：
 1、关键字大写
 2、库、表、字段需要加上``
+
+
+转译输出： ejs  <%- 变量名 %>
+
+默认不转译是防止注入攻击
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
